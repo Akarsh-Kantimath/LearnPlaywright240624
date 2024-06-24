@@ -1,0 +1,15 @@
+1. Reliable End to End testing -> Auto-wait capability
+it will perform checks of elements such as
+visible, stable, receive events, enabled and editable
+
+How much time it will wait - it will check the global timeout given value
+
+2. Cross-Browser compatibility
+3. Multiplatform Support
+4. Multilingual Flexibility - JS,TS,Java,Python,C#(.NET)
+
+Playwright advanced features
+1. Tracing and Debugging
+2. Network Interception - API testing libraries
+3. Browser context management - it takes the logged in tab cookies of non incognito and with those cookies we can login into incognito browser, injecting the cookies
+4. Codegen Tool
