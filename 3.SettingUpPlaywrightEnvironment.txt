@@ -1,0 +1,13 @@
+Playeright installation and setup
+What is Node.js ?
+Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes Javascript code outside a web browser.
+
+Install Node.js
+
+Editor to write a code - Install Visual Studio Code (best for JS/TS)
+
+Playwright official website - https://playwright.dev
+
+Install Playwright dependencies-
+at the project root directory - type a command
+npm init playwright
