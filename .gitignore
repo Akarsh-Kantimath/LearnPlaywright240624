@@ -35,3 +35,7 @@ cypress/screenshots
 .node-version
 .npmrc
 package-lock.json
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
