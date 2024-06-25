@@ -14,7 +14,7 @@ Initializing project in '.'
 select above answers and wait for it yto display "Happy hacking! 🎭" message
 
 Now it displayed with many files and folders 
-playwright.config.js
+playwright.config.js --> we write the tests inside test folder, playwright.config.js it's used as test runner, it helps to run the tests --> all the configuration of the tests will be defined here.
 package.json --> It's important
 package-lock.json
 tests-examples --> it contains examples of JS tests basics
