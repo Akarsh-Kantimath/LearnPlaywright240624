@@ -12,4 +12,4 @@ Playwright advanced features
 1. Tracing and Debugging
 2. Network Interception - API testing libraries
 3. Browser context management - it takes the logged in tab cookies of non incognito and with those cookies we can login into incognito browser, injecting the cookies
-4. Codegen Tool
+4. Codegen Tool 
