@@ -1,0 +1,23 @@
+Onnce after installation of node.js and editor VS code
+create a folder to of Playwrightlearning
+In VS code, open the folder by going through File
+now, open the terminal - by clicking left buttom X0 !0 icon
+in terminal enter a command npm init playwright
+it will start to install all the node library JARs
+
+Initializing project in '.'
+√ Do you want to use TypeScript or JavaScript? · JavaScript
+√ Where to put your end-to-end tests? · tests
+√ Add a GitHub Actions workflow? (y/N) · true
+√ Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n) · true
+
+select above answers and wait for it yto display "Happy hacking! 🎭" message
+
+Now it displayed with many files and folders 
+playwright.config.js
+package.json --> It's important
+package-lock.json
+tests-examples --> it contains examples of JS tests basics
+tests --> it's important
+node_modules  --> It contains all the library of node.js, if this folder gets deleted testscripts can't be run
+.github --> it's for git hub flows to put the code to git
