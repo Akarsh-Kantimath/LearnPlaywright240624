@@ -8,6 +8,8 @@
 const {test} = require ('@playwright/test')
 
 //test() take two parameters 1. test case name 2. function() of test, inside of it we write the actual code
+
+//test annotations will only come when we import the package require ('@playwright/test')
 test('First playwright test', async function(){
 
 // JS is Asynchronous, we have to tell to the runner explicitely by wait before completion of step 1 don't execute step 2 --> to handle it we add keyword await before every step
