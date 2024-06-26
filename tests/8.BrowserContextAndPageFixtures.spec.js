@@ -9,6 +9,13 @@ const {test} = require('@playwright/test')
 // There are four fixtures in playwright - browser, page and another two (in upcoming letures)
 
 //browser fixture example
+
+
+
+//By default playwright runs the tests in headless mode - you will not see browser opening
+//we have to tell explicitely to run in head mode - we will pass one flag 
+
+
 test('Browser context playwright test', async ({browser})=> {
 
     //test annotations will only come when we import the package require ('@playwright/test')
@@ -21,6 +28,7 @@ test('Browser context playwright test', async ({browser})=> {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 
 });
+
 
 //page fixture example
 test('page playwright test', async({page})=>{
