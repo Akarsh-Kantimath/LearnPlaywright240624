@@ -1,0 +1,12 @@
+//npx playwright test --> npx does the job of finding playwright jar inside node_modules
+// and test here refers to execute test runner i.e. playwright.config.js inside of it testDir - test directory files
+//inside tests folder - it checks for how many annotations are there inside a spec file
+//it will execute the multiple test annotations in a file sequentially
+
+//For example, if you have a test file named example.spec.ts located in the tests directory, you would run: npx playwright test tests/example.spec.ts
+
+//By deafult playwright executes in headless mode - npx playwright test tests/8.BrowserContextAndPageFixtures.spec.js  
+//To run them in headed mode - npx playwright test tests/8.BrowserContextAndPageFixtures.spec.js --headed
+
+//when you want to particular test annotation to be run only then we can use .only after the test annotation 
+//test.only
