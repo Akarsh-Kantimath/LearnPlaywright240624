@@ -8,7 +8,7 @@ const {test} = require('@playwright/test')
 
 // There are four fixtures in playwright - browser, page and another two (in upcoming letures)
 
-//browser fixture example
+//fixture example of - browser
 
 
 
@@ -30,7 +30,13 @@ test('Browser context playwright test', async ({browser})=> {
 });
 
 
-//page fixture example
+//fixture example of - page
 test('page playwright test', async({page})=>{
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+});
+
+
+//by using .only to test annotation - one single test can be run
+test.only('test of launch only this test', async({page})=>{
+    await page.goto("https://youtube.com");
 });
