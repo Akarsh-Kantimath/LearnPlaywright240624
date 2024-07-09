@@ -16,5 +16,9 @@ test('Handling of checkbox and assertions to it', async({page}) => {
     //.toBeFalsy() or .toBeTruthy() assurtions are inbuilt inside the playwright to check whether returned boolean value is correct or wrong
     expect(await page.locator('#terms').isChecked()).toBeFalsy();
 
+    //On comparing with line number 11 and 17 line, 
+    //In line 11 await is outside on the left extreme because action is performed 
+    //while line 17 await is written inside the bracket, because we are not performing any action instead to that particular locator, we are just checking.
+
 
 })
