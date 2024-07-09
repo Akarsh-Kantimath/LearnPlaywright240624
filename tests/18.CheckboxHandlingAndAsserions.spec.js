@@ -1,5 +1,4 @@
 const {test, expect } = require('@playwright/test');
-const { Console } = require('console');
 
 test('Handling of checkbox and assertions to it', async({page}) => {
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
