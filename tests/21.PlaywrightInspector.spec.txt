@@ -1,0 +1,6 @@
+In playwright to debug
+
+--debug is used at the end of 
+npx playwright test tests/17.HandlingOfStaticDropdownRadioButtonWebBasedPopup.spec.js --debug
+
+step by step each action can be navigated through playwright inspector forward arrow 
