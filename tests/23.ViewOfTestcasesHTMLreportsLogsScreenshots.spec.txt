@@ -1,0 +1,17 @@
+In the playwright.config.js file inside use : block, add screenshot and trace parameter
+use : {  
+    browserName : 'chromium', 
+    screenshot : 'on',
+    trace : 'on',
+    headless : false,
+
+  },
+
+  -->Upon run of any spec file, two folders are automatically created 
+  1. test-results - contains trace.zip file
+  2. playwright-report - index.html right click and choose the copyPath and paste in the browser to open the report of pass and fail or falky
+
+to open trace.zip file to see the screenshots of ongoing test
+1. go to trace.playwright.dev site in the browser
+2. search of test-results folder through file manager and open it to see the screenshots of the test spec files
+

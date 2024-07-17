@@ -13,6 +13,8 @@ const config = {
     //here we write about what browser to use, when to take screenshots and many more
 
     browserName : 'chromium', //browser engines - chromium, firefox, webkit (safari browser engine) 
+    screenshot : 'on',
+    trace : 'on',
 
     //to run the test everytime, we use npx playwright test tests/8.filename.spec.js --headed
     //instead of giving  --headed everytime, it can configured to run in headed mode

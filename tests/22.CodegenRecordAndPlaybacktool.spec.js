@@ -1,3 +1,6 @@
+//To use Codegen - npx playwrightt codegen https://google.com 
+//command is used -> after codegen URL of the site is used
+
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
