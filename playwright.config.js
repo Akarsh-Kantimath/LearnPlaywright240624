@@ -14,7 +14,7 @@ const config = {
 
     browserName : 'chromium', //browser engines - chromium, firefox, webkit (safari browser engine) 
     screenshot : 'on',
-    trace : 'retain-on-failure',   //In playwright.config.js file, we will change the trace parameter value from trace : 'on', -> trace : 'retain-on-failure' to generate trace file for only failed test cases.
+    trace : 'on',   //In playwright.config.js file, we will change the trace parameter value from trace : 'on', -> trace : 'retain-on-failure' to generate trace file for only failed test cases.
 
     //to run the test everytime, we use npx playwright test tests/8.filename.spec.js --headed
     //instead of giving  --headed everytime, it can configured to run in headed mode
