@@ -15,3 +15,8 @@ to open trace.zip file to see the screenshots of ongoing test
 1. go to trace.playwright.dev site in the browser
 2. search of test-results folder through file manager and open it to see the screenshots of the test spec files
 
+-----------------------------------------------
+When there are multiple spec files, if we keep generating trace file for every passed or failed spec file, then it eats up the memory of the system.
+To avoid it, we can generate trace file of only failed tests. 
+In playwright.config.js file, we will change the trace parameter value from 
+trace : 'on', -> trace : 'retain-on-failure'
