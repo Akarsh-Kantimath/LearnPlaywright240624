@@ -39,5 +39,6 @@ test('To find locators and fill, type method', async({page}) => {
     //In playwright , we need not write explicitely to wait, playwright have the intelligence to wait automatically to show up that partial hidden locator with the config timeout seconds (timeout : 5000)
     //https://playwright.dev/docs/test-assertions
     await expect(page.locator('[style*="block"]')).toContainText('/password');
+    await page.pause();
 
 });
