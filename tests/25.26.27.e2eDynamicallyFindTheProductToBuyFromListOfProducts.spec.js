@@ -54,6 +54,21 @@ test('e2e', async ({browser}) => {
 
     await expect( page.locator('[style*=green]') ).toContainText('* Coupon Applied');
 
+    await page.locator('[placeholder*="Country"]').pressSequentially('ind');
+    const dropdown = page.locator('.list-group');
+    await dropdown.waitFor();
+    const country = " India";
+    const optionCount = await dropdown.locator("button").count();
+
+    for(let i = 0; i <= optionCount; i++){
+        if(await dropdown.locator("button").nth(i).textContent() === country) {
+            await dropdown.locator("button").nth(i).click();
+            break;
+        }
+    }
+
+    await page.locator('.action__submit').click();
+
 
     
 
