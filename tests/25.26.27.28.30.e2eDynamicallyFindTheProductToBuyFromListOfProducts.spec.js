@@ -4,9 +4,10 @@ test('e2e', async ({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     
-    const productName = 'IPHONE 13 PRO';
+    const productName = 'ADIDAS ORIGINAL';
+    const email = 'testabc483@gmail.com';
     await page.goto('https://rahulshettyacademy.com/client');
-    await page.locator('#userEmail').fill('testabc483@gmail.com');
+    await page.locator('#userEmail').fill(email);
     await page.locator('#userPassword').fill('Abcd1234#');
     await page.locator('#login').click();
     await page.waitForLoadState('networkidle');
@@ -32,7 +33,7 @@ test('e2e', async ({browser}) => {
     //Element with text and putting a assertions with isVisible()
     //Usage of Pseudo class that can be used inside a CSS selector
     //Text of an element can be searched - on top of the CSS playwright gave an option to search an locator with the visible text 
-    const bool = await page.locator('h3:has-text("IPHONE 13 PRO")').isVisible(); //isVisible() gives the boolean values
+    const bool = await page.locator('h3:has-text("ADIDAS ORIGINAL")').isVisible(); //isVisible() gives the boolean values
     //Assertion for boolean value
     expect(bool).toBeTruthy();
 
@@ -67,21 +68,58 @@ test('e2e', async ({browser}) => {
         }
     }
 
+    //28. Complete E2E flow of placing the order and grab the orderID with playwright
+    expect (page.locator('.mt-5 [type="text"]').first()).toHaveText(email);
     await page.locator('.action__submit').click();
 
+    expect (page.locator('h1')).toHaveText(' Thankyou for the order. ');
+    const orderID = await page.locator('tr label').last().textContent();
 
-    
+    //30. Dynamically find the order from Order History page using PalyWright Script logic
+    // Click on view button - My logic and try 
+    // console.log(orderID);
+    // const orderIDs =  orderID.slice(3,27);
+
+    // await page.locator('li [routerlink*=orders]').click();
+    // await page.locator('table').waitFor();
+
+    // const rows = page.locator('tbody tr');
+    // const totalRows = await page.locator('tbody tr').count();
+    // //console.log(totalRows);
+
+    // for (let i = 0; i<= totalRows; i++ ){
+    //     if(await page.locator('tbody th').nth(i).textContent() === orderIDs){
+    //         await page.locator('tbody td button').nth(i).click();
+    //         break;
+    //     }
+    // }
 
 
+    //Video lecture 30 
+    await page.locator('button[routerlink*=myorders]').click();
+    await page.locator('tbody').waitFor();
+    const rows = await page.locator('tbody tr');
 
+    for(let i = 0; i <= await rows.count(); i++){
+        const rowOrderId = await rows.nth(i).locator('th').textContent();
+        if(orderID.includes(rowOrderId)){
+            await rows.nth(i).locator('button').first().click();
+            break;
+        }
+    }
 
+    await page.locator('.email-wrapper').waitFor();
+    const OrderIdSummary = await page.locator('.col-text').textContent();
+    expect (orderID.includes(OrderIdSummary)).toBeTruthy();
+    const emailIdSummary = await page.locator('div[class="address"] p').nth(0).textContent();
+    console.log(email);
+    console.log(emailIdSummary.trim());
+    expect (email.includes(emailIdSummary.trim())).toBeTruthy();
+    const countryNameSummary = await page.locator('div[class="address"] p').nth(1).textContent();
+    console.log(country);
+    console.log(countryNameSummary);
+    expect (countryNameSummary.includes(country)).toBeTruthy();
 
-
-    
-
-
-
-    
 
     await page.pause();
 })
