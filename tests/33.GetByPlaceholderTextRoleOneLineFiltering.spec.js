@@ -16,7 +16,7 @@ test('Special locator getByPlaceholder getByRole getByText One line filter', asy
     await page.getByRole("button", {name : "Submit"}).click();
 
     // .getByText locator is to find the component in the page by text, any message popup with text
-    await page.getByAltText('Success! The Form has been submitted successfully!.').isVisible();
+    await page.getByText('Success! The Form has been submitted successfully!.').isVisible();
     await page.getByRole("link", {name : "Shop"}).click();
 
     //Applying filter, when n no. of elements is returned
