@@ -4,7 +4,7 @@ test('Calender Validations', async({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://rahulshettyacademy.com/seleniumPractise/#/');
-    const TopDeals = page.locator('a[href="#/offers"]');
+    const TopDeals = page.locator('.cart').locator('a[href="#/offers"]');
 
     //ChildTab handling
     const [childPage1] = await Promise.all([context.waitForEvent('page'),TopDeals.click()]);
@@ -37,40 +37,41 @@ test('Calender Validations', async({browser}) => {
     //const button = page.locator('text="' + buttonText + '"');
 
     
-    await childPage1.locator('.react-calendar__month-view__days').locator("abbr:has-text("+date+")").click();
+    await childPage1.locator('.react-calendar__month-view__days button').locator('text="' +date+ '"').click();
+    const Finaldate = await childPage1.locator('.react-date-picker__inputGroup input').nth(0).getAttribute('value');
+    console.log(Finaldate);
+    await expect(Finaldate)
 
 
+//     const { chromium } = require('playwright');
 
+// (async () => {
+//     const browser = await chromium.launch();
+//     const context = await browser.newContext();
+//     const page = await context.newPage();
 
-    const { chromium } = require('playwright');
+//     // Navigate to the parent page
+//     await page.goto('https://example.com');
 
-(async () => {
-    const browser = await chromium.launch();
-    const context = await browser.newContext();
-    const page = await context.newPage();
+//     // Perform the action that opens a new tab (child tab)
+//     const [newPage] = await Promise.all([
+//         context.waitForEvent('page'), // Waits for the new tab to open
+//         page.click('a[target="_blank"]'), // Click the link that opens the new tab
+//     ]);
 
-    // Navigate to the parent page
-    await page.goto('https://example.com');
+//     // Wait for the child tab to fully load
+//     await newPage.waitForLoadState();
 
-    // Perform the action that opens a new tab (child tab)
-    const [newPage] = await Promise.all([
-        context.waitForEvent('page'), // Waits for the new tab to open
-        page.click('a[target="_blank"]'), // Click the link that opens the new tab
-    ]);
+//     // Now you can interact with the child tab
+//     console.log('Child tab URL:', newPage.url());
 
-    // Wait for the child tab to fully load
-    await newPage.waitForLoadState();
+//     // Example: Interacting with the child tab
+//     await newPage.click('button#someButton');
+//     const text = await newPage.textContent('h1');
+//     console.log('Text in child tab:', text);
 
-    // Now you can interact with the child tab
-    console.log('Child tab URL:', newPage.url());
-
-    // Example: Interacting with the child tab
-    await newPage.click('button#someButton');
-    const text = await newPage.textContent('h1');
-    console.log('Text in child tab:', text);
-
-    // Close the browser
-    await browser.close();
-})();
+//     // Close the browser
+//     await browser.close();
+// })();
 
 })
