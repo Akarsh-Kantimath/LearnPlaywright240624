@@ -15,10 +15,25 @@ test('Calender Validations', async({browser}) => {
     // Now you can interact with the child tab
     console.log('Child tab URL:', childPage1.url());
 
-    const date = '17';
-    const monthNumber = '8';
-    const year = '2024';
-
+    var date = '7';
+    var modifiedDate = date;
+    var monthNumber = '7';
+    var modifiedMonthNumber = monthNumber;
+    const year = '2022';
+    
+    //console.log(modifiedDate.length);
+    if(date.length === 1){
+        var modifiedDate = '0'+date;
+    }
+    //console.log(date);
+    if(monthNumber.length === 1) {
+        var modifiedMonthNumber = '0'+monthNumber;
+    }
+    //console.log(monthNumber);
+    
+    const concatenatedDate = year+'-'+modifiedMonthNumber+'-'+modifiedDate;
+    
+    
 
     await childPage1.locator('.react-date-picker__calendar-button').click();
     await childPage1.locator('.react-calendar__navigation__label').click();
@@ -37,12 +52,25 @@ test('Calender Validations', async({browser}) => {
     //const button = page.locator('text="' + buttonText + '"');
 
     
-    await childPage1.locator('.react-calendar__month-view__days button').locator('text="' +date+ '"').click();
+    await childPage1.locator('.react-calendar__month-view__days button').locator('text="' +date+ '"').nth(0).click();
     const Finaldate = await childPage1.locator('.react-date-picker__inputGroup input').nth(0).getAttribute('value');
-    console.log(Finaldate);
-    await expect(Finaldate)
+    //console.log(Finaldate);
+    await expect(Finaldate).toBe(concatenatedDate);
 
 
+    //Method two - Validating the calender month/date/year
+    //declaring array of const month, date, year value
+    const expectedList = [monthNumber,date,year];
+
+    const inputs = await childPage1.locator('.react-date-picker__inputGroup input');
+    for(let index = 0; index < inputs.length; index++) {
+        const value = inputs[index].getAttribute('value');
+        expect(value).toBe(expectedList[index]);
+    }
+
+
+
+//Handling of Child-tab in Playwright tool.
 //     const { chromium } = require('playwright');
 
 // (async () => {
