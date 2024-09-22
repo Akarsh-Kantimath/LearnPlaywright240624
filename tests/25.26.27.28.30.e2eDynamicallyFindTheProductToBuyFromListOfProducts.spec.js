@@ -28,7 +28,7 @@ test('e2e', async ({browser}) => {
     await page.locator('[routerlink*="cart"]').click();
 
     //When the button is clicked, it open up new page - There's also other type wait to have all the components of page to load using waitFor() method
-    await page.locator('div li').first().waitFor();
+   // await page.locator('div li').first().waitFor();
 
     //Element with text and putting a assertions with isVisible()
     //Usage of Pseudo class that can be used inside a CSS selector
