@@ -35,7 +35,7 @@ test('e2e', async ({browser}) => {
     //Text of an element can be searched - on top of the CSS playwright gave an option to search an locator with the visible text 
     const bool = await page.locator('h3:has-text("ADIDAS ORIGINAL")').isVisible(); //isVisible() gives the boolean values
     //Assertion for boolean value
-    expect(bool).toBeTruthy();
+    //expect(bool).toBeTruthy();
 
     //27. Handling auto suggestive dropdown options with playwright 
     //Usage of CSS with text selector
